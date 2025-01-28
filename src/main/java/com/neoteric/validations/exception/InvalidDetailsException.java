@@ -2,8 +2,20 @@ package com.neoteric.validations.exception;
 
 public class InvalidDetailsException  extends RuntimeException
 {
-    public InvalidDetailsException(String message){
+    private final String message;
+
+    public InvalidDetailsException() {
+        this.message = "Invalid details provided";
+    }
+
+    public InvalidDetailsException(String message) {
         super(message);
+        this.message = message;
+    }
+
+    @Override
+    public String getMessage() {
+        return message;
     }
 
 }

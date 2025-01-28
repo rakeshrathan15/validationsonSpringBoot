@@ -2,7 +2,7 @@ package com.neoteric.validations.model;
 
 public class ErrorDetails {
 
-    private String message;
+    private String status;
 
     private String details;
 
@@ -11,17 +11,17 @@ public class ErrorDetails {
 
     }
 
-    public ErrorDetails(String message, String details) {
-        this.message = message;
+    public ErrorDetails(String status, String details) {
+        this.status = status;
         this.details = details;
     }
 
-    public String getMessage() {
-        return message;
+    public String getStatus() {
+        return status;
     }
 
-    public void setMessage(String message) {
-        this.message = message;
+    public void setStatus(String status) {
+        this.status = status;
     }
 
     public String getDetails() {
@@ -30,5 +30,7 @@ public class ErrorDetails {
 
     public void setDetails(String details) {
         this.details = details;
+
+
     }
 }
