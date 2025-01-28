@@ -1,0 +1,83 @@
+openapi: 3.0.3
+info:
+  title: Swagger Customer - OpenAPI 3.0
+  version: 1.0.0
+servers:
+  - url: /
+tags:
+  - name: customer
+    description: Customer-related operations
+  - name: account
+    description: Customer account-related operations
+paths:
+  /api/user/createCustomer:
+    post:
+      summary: Create a new customer
+      description: Create a customer with nominee details.
+      operationId: createCustomer
+      tags:
+        - customer
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Customer'
+      responses:
+        "200":
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Customer'
+  /api/user/getCustomer:
+    get:
+      summary: Get customer details
+      description: Retrieve the details of a customer.
+      operationId: getCustomer
+      tags:
+        - customer
+      responses:
+        "200":
+          description: Get Customer details
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Customer'
+components:
+  schemas:
+    Address:
+      type: object
+      description: Address details of the customer
+      properties:
+        street:
+          type: string
+          description: Street name
+        city:
+          type: string
+          description: City name
+        state:
+          type: string
+          description: State name
+        pincode:
+          type: string
+          description: Pincode
+    Customer:
+      type: object
+      description: Customer details
+      required:
+        - customerName
+      properties:
+        customerName:
+          type: string
+          description: Full name of the customer
+        customerEmail:
+          type: string
+          description: Email address of the customer
+        cuastomerPhone:
+          type: string
+          description: Phone number of the customer
+        address:
+          $ref: '#/components/schemas/Address'
+
+
