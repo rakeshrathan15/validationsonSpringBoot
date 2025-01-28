@@ -27,8 +27,8 @@ public class ExceptionHandlerConfig {
     public ResponseEntity<ErrorDetails> handleException(MethodArgumentNotValidException ex) {
         // Collect all validation error messages
         String errorMessages = ex.getBindingResult().getFieldErrors().stream()
-                .map(fieldError -> fieldError.getDefaultMessage())
-                .collect(Collectors.joining(", "));  // Join messages with commas
+                .map(fieldError -> fieldError.getDefaultMessage()).collect(Collectors.toList()).toString();
+               // .collect(Collectors.joining(", "));  // Join messages with commas
 
         // Construct the response
         ErrorDetails response = new ErrorDetails();

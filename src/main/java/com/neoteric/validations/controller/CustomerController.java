@@ -37,6 +37,14 @@ public class CustomerController  implements CustomerApi {
     }
 
 
+//    @GetMapping("/get")
+//    public ResponseEntity<CustomerEntity> getUser(@PathVariable CustomerModel customerModel){
+//
+//
+//
+//    }
+
+
 
 //    @Override
 //
